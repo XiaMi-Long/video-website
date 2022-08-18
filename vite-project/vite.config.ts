@@ -4,7 +4,7 @@
  * @Author: wwy
  * @Date: 2022-08-16 21:29:20
  * @LastEditors: wwy
- * @LastEditTime: 2022-08-16 22:10:21
+ * @LastEditTime: 2022-08-18 17:39:29
  */
 import { defineConfig } from "vite"
 import vue from "@vitejs/plugin-vue"
@@ -20,6 +20,7 @@ export default defineConfig({
     AutoImport({
       imports: [
         "vue",
+        "vue-router",
         {
           "naive-ui": [
             "useDialog",
@@ -28,10 +29,12 @@ export default defineConfig({
             "useLoadingBar"
           ]
         }
-      ]
+      ],
+      dts: "./auto-imports.d.ts"
     }),
     Components({
-      resolvers: [NaiveUiResolver()]
+      resolvers: [NaiveUiResolver()],
+      dts: true
     })
   ]
 })

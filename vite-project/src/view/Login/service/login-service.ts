@@ -4,7 +4,7 @@
  * @Author: wwy
  * @Date: 2022-08-18 15:07:34
  * @LastEditors: wwy
- * @LastEditTime: 2022-08-18 17:23:22
+ * @LastEditTime: 2022-08-18 17:36:06
  */
 import { userLoginRequest } from "/src/api/Login"
 
@@ -43,7 +43,7 @@ export function useLoginService() {
    * @msg: 登录校验
    * @return {*}
    */
-  function handleModalLogin(emits: defineEmits): void {
+  function handleModalLogin(emits: Emit): void {
     userFormRef.value?.validate(async (success: Array<Object> | undefined) => {
       if (!success) {
         const res = await userLoginRequest(

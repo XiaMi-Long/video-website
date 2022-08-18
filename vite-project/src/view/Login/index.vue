@@ -4,7 +4,7 @@
  * @Author: wwy
  * @Date: 2022-08-18 12:05:44
  * @LastEditors: wwy
- * @LastEditTime: 2022-08-18 17:24:43
+ * @LastEditTime: 2022-08-18 17:35:41
 -->
 <script setup lang="ts">
 import LogoTextView from "/src/components/LogoText/index.vue"
