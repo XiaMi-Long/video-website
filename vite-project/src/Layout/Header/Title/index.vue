@@ -4,13 +4,17 @@
  * @Author: wwy
  * @Date: 2022-08-17 12:30:49
  * @LastEditors: wwy
- * @LastEditTime: 2022-08-17 12:33:59
+ * @LastEditTime: 2022-08-18 14:59:42
 -->
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import LogoTextView from "/src/components/LogoText/index.vue"
+</script>
 
 <template>
   <div class="layout-header-title-view">
-    <span class="title"> VIDEO </span>
+    <span class="title">
+      <LogoTextView> VIDEO </LogoTextView>
+    </span>
   </div>
 </template>
 
@@ -19,7 +23,7 @@
   .title {
     font-weight: bold;
 
-    color: #0f4b80;
+    color: #2080f0;
 
     font-size: 18px;
 

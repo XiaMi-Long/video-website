@@ -4,16 +4,33 @@
  * @Author: wwy
  * @Date: 2022-08-17 12:36:35
  * @LastEditors: wwy
- * @LastEditTime: 2022-08-18 10:45:14
+ * @LastEditTime: 2022-08-18 17:11:23
 -->
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import LoginView from "/src/view/Login/index.vue"
+
+let showModal = ref<boolean>(false)
+
+function openLoginModal(): void {
+  showModal.value = true
+}
+
+function handleCloseModal(): void {
+  showModal.value = false
+}
+</script>
 
 <template>
   <div class="layout-header-user-view">
     <div class="option-button">
       <n-avatar round size="medium" src="/src/assets/images/p.jpg" />
-      <n-button color="#0f4b80"> Sign in </n-button>
+      <n-button color="#0f4b80" @click="openLoginModal"> Sign in </n-button>
     </div>
+
+    <LoginView
+      :showModal="showModal"
+      @closeModal="handleCloseModal"
+    ></LoginView>
   </div>
 </template>
 
