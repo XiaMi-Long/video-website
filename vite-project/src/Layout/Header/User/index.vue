@@ -4,11 +4,13 @@
  * @Author: wwy
  * @Date: 2022-08-17 12:36:35
  * @LastEditors: wwy
- * @LastEditTime: 2022-08-18 17:11:23
+ * @LastEditTime: 2022-08-18 22:05:37
 -->
 <script setup lang="ts">
 import LoginView from "/src/view/Login/index.vue"
+import { useGettersService } from "/src/store/service/getters-service"
 
+const { isAuth } = useGettersService()
 let showModal = ref<boolean>(false)
 
 function openLoginModal(): void {
@@ -23,8 +25,15 @@ function handleCloseModal(): void {
 <template>
   <div class="layout-header-user-view">
     <div class="option-button">
-      <n-avatar round size="medium" src="/src/assets/images/p.jpg" />
-      <n-button color="#0f4b80" @click="openLoginModal"> Sign in </n-button>
+      <n-avatar
+        round
+        size="medium"
+        src="/src/assets/images/p.jpg"
+        v-if="isAuth"
+      />
+      <n-button color="#0f4b80" @click="openLoginModal" v-if="!isAuth">
+        Sign in
+      </n-button>
     </div>
 
     <LoginView
