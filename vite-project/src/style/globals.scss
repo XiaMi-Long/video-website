@@ -1,13 +1,12 @@
 
 
 :root {
+  /* 页面主题色 */
+  --page-primary-color: #2080f0;
   /* 页面中顶部区域icon的颜色 */
   --layout-header-icon-color: #747575
     /* 页面中所有采用黑色的文字 */
     --black-color-font: #000;
   /* 页面中所有采用灰色字体的文字 */
   --grey-color-font: #747575;
-
-  --color-da: $card-border-radius;
-
 }

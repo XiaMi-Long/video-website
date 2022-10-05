@@ -1,0 +1,112 @@
+.video-card-components-container {
+  display: flex;
+  justify-content: space-between;
+
+  /* 图片圆角 */
+  $card-border-radius: 4px;
+  .video-list-box {
+    height: 330px;
+    width: 23%;
+
+    /* 顶部区域 */
+    .top {
+      width: 100%;
+      height: 180px;
+
+      cursor: pointer;
+
+      position: relative;
+
+      /* 图片 */
+      .img {
+        width: 100%;
+        height: 100%;
+
+        object-fit: cover;
+
+        border-radius: $card-border-radius;
+      }
+
+      &:hover .video-time {
+        opacity: 1;
+      }
+    }
+
+    $gray-text-color: #aaaaaa;
+
+    /* 底部区域 */
+    .bottom {
+      height: 125px;
+
+      /* 视频标题 */
+      .video-title {
+        height: 40%;
+
+        padding-top: 15px;
+
+        cursor: pointer;
+
+        &:hover {
+          color: var(--page-primary-color);
+        }
+      }
+
+      /* 阅读量 */
+      .read-count {
+        height: 20%;
+
+        color: $gray-text-color;
+
+        font-size: 12px;
+      }
+
+      /* 作者区域 */
+      .author {
+        height: 40%;
+
+        display: flex;
+
+        color: $gray-text-color;
+
+        /* 左侧区域 */
+        .left {
+          width: 50%;
+          height: 100%;
+
+          display: flex;
+          align-items: center;
+
+          /* 作者头像 */
+          .author-img {
+            width: 35px;
+            height: 35px;
+
+            object-fit: cover;
+
+            border-radius: 50%;
+
+            cursor: pointer;
+          }
+
+          /* 作者名称 */
+          .author-name {
+            height: 35px;
+            line-height: 35px;
+
+            margin-left: 10px;
+          }
+        }
+
+        /* 右边区域 */
+        .right {
+          width: 50%;
+          height: 100%;
+
+          display: flex;
+          justify-content: flex-end;
+          align-items: center;
+        }
+      }
+    }
+  }
+}

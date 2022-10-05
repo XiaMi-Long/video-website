@@ -34,5 +34,7 @@ declare module '@vue/runtime-core' {
     NTime: typeof import('naive-ui')['NTime']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    SplitLine: typeof import('./src/components/SplitLine/index.vue')['default']
+    VideoCard: typeof import('./src/components/VideoCard/index.vue')['default']
   }
 }

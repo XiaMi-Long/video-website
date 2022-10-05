@@ -1,9 +1,37 @@
-.common-flex-center{
+/* 常用flex居中 */
+.common-flex-center {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.body-container{
+/* body区域的内边距 */
+.body-container {
   padding: 20px;
+}
+
+/* 视频显示时长通用样式 */
+.video-time {
+  opacity: 0;
+
+  min-width: 40px;
+
+  background-color: rgb(0 0 0);
+
+  border-radius: 2px;
+
+  color: rgb(255 255 255);
+
+  display: inline-block;
+
+  position: absolute;
+
+  bottom: 10px;
+  right: 5px;
+
+  font-size: 12px;
+
+  text-align: center;
+
+  transition: opacity 0.4s;
 }

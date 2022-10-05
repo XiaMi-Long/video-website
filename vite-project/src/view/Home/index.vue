@@ -4,11 +4,12 @@
  * @Author: wwy
  * @Date: 2022-08-16 23:47:17
  * @LastEditors: wwy
- * @LastEditTime: 2022-10-04 00:31:21
+ * @LastEditTime: 2022-10-05 20:42:22
 -->
 <script setup lang="ts">
-import RecommendView from './Recommend/index.vue'
-import SwiperView from './Swiper/index.vue'
+import RecommendView from './components/TheRecommend/index.vue'
+import SwiperView from './components/TheSwiper/index.vue'
+import ClassifyView from './components/TheClassify/index.vue'
 </script>
 
 <template>
@@ -25,6 +26,8 @@ import SwiperView from './Swiper/index.vue'
       </n-gi>
       <n-gi :span="0">4</n-gi>
     </n-grid>
+    <!-- 分类视频区域 -->
+    <ClassifyView></ClassifyView>
   </div>
 </template>
 
