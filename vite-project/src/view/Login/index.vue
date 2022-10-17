@@ -4,28 +4,27 @@
  * @Author: wwy
  * @Date: 2022-08-18 12:05:44
  * @LastEditors: wwy
- * @LastEditTime: 2022-08-18 17:49:08
+ * @LastEditTime: 2022-10-16 19:59:00
 -->
 <script setup lang="ts">
-import LogoTextView from "/src/components/LogoText/index.vue"
-import { computed } from "@vue/runtime-core"
+import LogoTextView from '/src/components/LogoText/index.vue'
+import { computed } from '@vue/runtime-core'
 
-import { useLoginService } from "./service/login-service"
+import { useLoginService } from './service/login-service'
 
 interface Props {
   showModal: boolean
 }
 
 interface Emit {
-  (e: "closeModal", closeModal: boolean): void
+  (e: 'closeModal', closeModal: boolean): void
 }
 
 const props = defineProps<Props>()
 const emits = defineEmits<Emit>()
 
-const tabsValue = ref<string | number>("Signin")
-const { userForm, userFormRules, userFormRef, handleModalLogin } =
-  useLoginService()
+const tabsValue = ref<string | number>('Signin')
+const { userForm, userFormRules, userFormRef, handleModalLogin } = useLoginService()
 
 /**
  * @name: wwy
@@ -33,7 +32,7 @@ const { userForm, userFormRules, userFormRef, handleModalLogin } =
  * @return {*}
  */
 function handleClickLoginModal(): void {
-  emits("closeModal", false)
+  emits('closeModal', false)
 }
 
 /**
@@ -45,7 +44,7 @@ function handleTabsUpdate(value: string | number): void {
   tabsValue.value = value
 }
 
-const isSignin = computed(() => tabsValue.value === "Signin")
+const isSignin = computed(() => tabsValue.value === 'Signin')
 </script>
 
 <template>
@@ -57,14 +56,7 @@ const isSignin = computed(() => tabsValue.value === "Signin")
       :close-on-esc="false"
       :on-mask-click="handleClickLoginModal"
     >
-      <n-card
-        style="width: 600px"
-        title=""
-        :bordered="false"
-        size="huge"
-        role="dialog"
-        aria-modal="true"
-      >
+      <n-card style="width: 600px" title="" :bordered="false" size="huge" role="dialog" aria-modal="true">
         <template #header>
           <div class="card-header">
             <LogoTextView> VIDEO </LogoTextView>
@@ -108,25 +100,14 @@ const isSignin = computed(() => tabsValue.value === "Signin")
               </n-form-item>
             </n-form>
           </n-tab-pane>
-          <n-tab-pane name="register" tab="注册" display-directive="show">
-            register
-          </n-tab-pane>
+          <n-tab-pane name="register" tab="注册" display-directive="show"> register </n-tab-pane>
         </n-tabs>
 
         <template #footer>
           <n-space justify="end">
-            <n-button
-              color="#2080f0"
-              ghost
-              @click="handleModalLogin(emits)"
-              v-if="isSignin"
-            >
-              登录
-            </n-button>
+            <n-button color="#2080f0" ghost @click="handleModalLogin(emits)" v-if="isSignin"> 登录 </n-button>
             <n-button color="#2080f0" ghost v-if="!isSignin"> 注册 </n-button>
-            <n-button type="info" @click="handleClickLoginModal">
-              关闭
-            </n-button>
+            <n-button type="info" @click="handleClickLoginModal"> 关闭 </n-button>
           </n-space>
         </template>
       </n-card>

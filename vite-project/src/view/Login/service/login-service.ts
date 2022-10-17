@@ -4,11 +4,11 @@
  * @Author: wwy
  * @Date: 2022-08-18 15:07:34
  * @LastEditors: wwy
- * @LastEditTime: 2022-08-18 22:19:04
+ * @LastEditTime: 2022-10-15 17:43:49
  */
-import { userLoginRequest } from "/src/api/Login"
-import { localStorageUtil } from "/src/utils/localStorageUtil"
-import { useStore } from "vuex"
+import { userLoginRequest } from '/src/api/Login'
+import { localStorageUtil } from '/src/utils/localStorageUtil'
+import { useStore } from 'vuex'
 
 export interface FormUser {
   userName: string
@@ -26,20 +26,20 @@ export function useLoginService() {
 
   const userFormRef = ref<any | null>(null)
   const userForm = ref<FormUser>({
-    userName: "admin",
-    password: "admin123"
+    userName: 'admin',
+    password: 'admin123',
   })
   const userFormRules: FormUserRules = {
     userName: {
       required: true,
-      message: "请输入用户名",
-      trigger: "blur"
+      message: '请输入用户名',
+      trigger: 'blur',
     },
     password: {
       required: true,
-      message: "请输入密码",
-      trigger: "blur"
-    }
+      message: '请输入密码',
+      trigger: 'blur',
+    },
   }
 
   /**
@@ -50,20 +50,17 @@ export function useLoginService() {
   function handleModalLogin(emits: Emit): void {
     userFormRef.value?.validate(async (success: Array<Object> | undefined) => {
       if (!success) {
-        const res = await userLoginRequest(
-          userForm.value.userName,
-          userForm.value.password
-        )
+        const res = await userLoginRequest(userForm.value.userName, userForm.value.password)
         console.log(res)
         if (res.code === 0) {
           // TODO 测试待删除
           res.token = true
-          localStorageUtil.setItem("auth", res.token)
-          store.commit("SET_AUTH_IS_AUTH", true)
-          message.success("登录成功", { duration: 5000 })
-          emits("closeModal", false)
+          localStorageUtil.setItem('auth', res.token)
+          store.commit('SET_AUTH_IS_AUTH', true)
+          message.success('登录成功', { duration: 5000 })
+          emits('closeModal', false)
         } else {
-          message.error("登录失败", { duration: 5000 })
+          message.error('登录失败', { duration: 5000 })
         }
       }
     })
@@ -73,6 +70,6 @@ export function useLoginService() {
     userFormRef,
     userForm,
     userFormRules,
-    handleModalLogin
+    handleModalLogin,
   }
 }

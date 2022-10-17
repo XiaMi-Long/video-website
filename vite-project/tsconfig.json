@@ -14,7 +14,13 @@
       "ESNext",
       "DOM"
     ],
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "baseUrl": "./", //paths路劲解析起点
+    "paths": {
+      "@/*": [
+        "./src/*"
+      ] // 相对位置需要配置baseUrl才能识别，否则会报错
+    }
   },
   "include": [
     "src/**/*.ts",

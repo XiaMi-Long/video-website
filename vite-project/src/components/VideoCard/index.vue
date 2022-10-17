@@ -1,4 +1,15 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: wwy
+ * @Date: 2022-10-05 20:48:00
+ * @LastEditors: wwy
+ * @LastEditTime: 2022-10-16 21:20:42
+-->
 <script setup lang="ts">
+import { Ref, unref } from 'vue'
+import { ListStructure } from '@/view/Home/components/TheClassify/service/get-list-service'
+
 const testArray: Array<any> = [
   {
     url: '/src/assets/images/video-card-components-img/1.jpg',
@@ -36,12 +47,36 @@ const testArray: Array<any> = [
     readCount: '100万次观看',
     time: '2021-01-20',
   },
+  {
+    url: '/src/assets/images/video-card-components-img/5.jpg',
+    videoTitle: '今日环法正式开赛！',
+    videoTime: '99:23',
+    author: '小白',
+    authorImg: '',
+    readCount: '100万次观看',
+    time: '2021-01-20',
+  },
+  {
+    url: '/src/assets/images/video-card-components-img/5.jpg',
+    videoTitle: '今日环法正式开赛！',
+    videoTime: '99:23',
+    author: '小白',
+    authorImg: '',
+    readCount: '100万次观看',
+    time: '2021-01-20',
+  },
 ]
+interface Props {
+  list: Array<ListStructure>
+}
+
+const props = defineProps<Props>()
+console.log(unref(props.list))
 </script>
 
 <template>
   <div class="video-card-components-container">
-    <div class="video-list-box" v-for="(item, index) of testArray" :key="index">
+    <div class="video-list-box" v-for="(item, index) of list" :key="index">
       <!-- 图片区域 -->
       <div class="top">
         <img :src="item.url" alt="图片" class="img" />

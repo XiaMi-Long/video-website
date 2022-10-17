@@ -1,12 +1,13 @@
 .video-card-components-container {
   display: flex;
-  justify-content: space-between;
+  flex-wrap: wrap;
 
   /* 图片圆角 */
   $card-border-radius: 4px;
   .video-list-box {
     height: 330px;
     width: 23%;
+    margin: 0 1%;
 
     /* 顶部区域 */
     .top {
